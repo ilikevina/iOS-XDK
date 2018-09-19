@@ -9,18 +9,13 @@ platform :ios, '9.0'
 
 use_frameworks!
 
-if !ENV['LAYER_USE_CORE_SDK_LOCATION'].blank? then
-  pod 'LayerKit', path: ENV['LAYER_USE_CORE_SDK_LOCATION']
-end
-
 target 'UnitTests' do
   pod 'Specta'
   pod 'Expecta'
   pod 'OCMock'
   pod 'OCMockito'
   pod 'KIF'
-  pod 'LayerXDK/UI', path: '../.'
-  pod 'LayerKit', '~> 4.1.0-pre1'
+  pod 'LayerXDK/UI', '4.0.1'
 end
 
 # If we are building LayerKit from source then we need a post install hook to handle non-modular SQLite imports
