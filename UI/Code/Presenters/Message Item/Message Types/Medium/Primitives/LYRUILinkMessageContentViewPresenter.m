@@ -81,10 +81,10 @@ static CGFloat const LYRUILinkMessageContentViewVerticalPadding = 17.0;
 }
 
 - (UIColor *)backgroundColorForMessage:(LYRUILinkMessage *)messageType {
-//    BOOL outgoingMessage = [self isMessageOutgoing:messageType];
-//    if (outgoingMessage && messageType.imageURL == nil && messageType.metadata == nil) {
-//        return [UIColor colorWithRed:16.0/255.0 green:148.0/255.0 blue:208.0/255.0 alpha:1.0];
-//    }
+    BOOL outgoingMessage = [self isMessageOutgoing:messageType];
+    if (outgoingMessage && messageType.imageURL == nil && messageType.metadata == nil) {
+        return [UIColor colorWithRed:114.0/255.0 green:210.0/255.0 blue:209.0/255.0 alpha:1.0];
+    }
     return [super backgroundColorForMessage:messageType];
 }
 
