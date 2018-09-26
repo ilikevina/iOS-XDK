@@ -133,6 +133,11 @@
 #pragma mark - Selection
 
 - (void)indexPathSelected:(NSIndexPath *)indexPath {
+    id item = (LYRUIMessageType*)[self.dataSource itemAtIndexPath:indexPath];
+    if (item != nil && [item isKindOfClass:[LYRUIMessageType class]]) {
+        NSString *senderUserId = ((LYRUIMessageType*)item).sender.userID;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"LayerUserMessageSelected" object:senderUserId userInfo:nil];
+    }
     if (self.itemSelected) {
         id item = [self.dataSource itemAtIndexPath:indexPath];
         self.itemSelected(item);
