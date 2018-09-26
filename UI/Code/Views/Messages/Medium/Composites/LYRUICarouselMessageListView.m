@@ -32,8 +32,10 @@
 }
 
 - (void)listViewDidScroll:(CGFloat)scrollPosition {
-    LYRUICarouselScrolledAnalyticsEvent *event = [LYRUICarouselScrolledAnalyticsEvent carouselScrolledAnalyticsEventWithMessage:self.message.messagePart.message position:scrollPosition];
-    [self.layerConfiguration.client postAnalyticsEvent:event];
+    if (self.message.messagePart.message != nil) {
+        LYRUICarouselScrolledAnalyticsEvent *event = [LYRUICarouselScrolledAnalyticsEvent carouselScrolledAnalyticsEventWithMessage:self.message.messagePart.message position:scrollPosition];
+        [self.layerConfiguration.client postAnalyticsEvent:event];
+    }
 }
 
 @end
