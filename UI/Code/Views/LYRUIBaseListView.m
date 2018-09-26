@@ -25,6 +25,7 @@
 #import "LYRUIListQueryControllerDelegate.h"
 #import "LYRUIListSection.h"
 #import "LYRUIListDelegate.h"
+#import "LYRUIMessageType.h"
 
 @interface LYRUIBaseListView ()
 
