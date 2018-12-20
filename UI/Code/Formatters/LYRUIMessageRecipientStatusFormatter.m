@@ -34,9 +34,10 @@
 - (NSString *)stringForMessageRecipientStatus:(LYRMessage *)message {
     LYRRecipientStatus status = [self statusForMessage:message];
     NSDictionary *filteredStatus = [self recipientStatusWithoutCurrentUser:message.recipientStatusByUserID];
-    BOOL groupConversation = filteredStatus.count > 1;
+    BOOL groupConversation = filteredStatus.count > 2; //exclude the bot user
     NSCountedSet *setOfStatuses = [NSCountedSet setWithArray:filteredStatus.allValues];
     NSUInteger numberOfRecipientsForStatus = [setOfStatuses countForObject:@(status)];
+    numberOfRecipientsForStatus-- //exclude the bot user
     BOOL plural = numberOfRecipientsForStatus > 1;
     NSString *stringStatus;
     switch (status) {
